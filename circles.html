@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="circles.css">
+    <script type="text/javascript" src="paper-full.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.15/howler.js"></script>
+    
+    <script type="text/paperscript" canvas="myCanvas">
+        var keyData= {
+            a:{
+                color: "purple",
+                sound: new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })
+
+            },
+            b:{
+                color: "white",
+                sound: new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })
+
+            },
+            c:{
+                color: "navy",
+                sound: new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })
+
+            }, 
+           d:{
+                color: "blue",
+                sound: new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })
+
+            },
+            e:{
+                color: "teal",
+                sound: new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })
+
+            },
+            f:{
+                color: "aqua",
+                sound: new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })
+
+            },   
+            g:{
+                color: "darkOrchid",
+                sound: new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })
+
+            },
+            h:{
+                color: "silver",
+                sound: new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })
+
+            },
+            i:{
+                color: "deepPink",
+                sound: new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })
+
+            }, 
+            j:{
+                color: "navajoWhite",
+                sound: new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })
+
+            },
+            k:{
+                color: "royalBlue",
+                sound: new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })
+
+            },
+            l:{
+                color: "lightSeaGreen",
+                sound: new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })
+
+            },
+            m:{
+                color: "fireBrick",
+                sound: new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })
+
+            },
+            n:{
+                color: "paleGreen",
+                sound: new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })
+
+            }, 
+            ñ:{
+                color: "darkOrange",
+                sound: new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })
+
+            },
+            o:{
+                color: "papayaWhip",
+                sound: new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })
+
+            },
+            p:{
+                color: "mediumVioletRed",
+                sound: new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })
+
+            },
+            q:{
+                color: "yellowGreen",
+                sound: new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })
+
+            },
+            r:{
+                color: "lightCoral",
+                sound: new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })
+
+            },
+            s:{
+                color: "darkTurquoise",
+                sound: new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })
+
+            }, 
+            t:{
+                color: "tan",
+                sound: new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })
+
+            },
+            u:{
+                color: "chocolate",
+                sound: new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })
+
+            },
+            v:{
+                color: "pink",
+                sound: new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })
+
+            }, 
+            w:{
+                color: "cyan",
+                sound: new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })
+
+            }, 
+            x:{
+                color: "darkCyan",
+                sound: new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })
+
+            },
+            y:{
+                color: "gold",
+                sound: new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })
+
+            },
+            z:{
+                color: "slateBlue",
+                sound: new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })
+
+            }, 
+        }
+
+
+        var circulo;
+        var arreglo = [];
+        function onKeyDown(event) {
+            if(keyData[event.key]){
+            var puntoMaximo = new Point(view.size.width, view.size.height);
+            var puntoRandom = Point.random();   
+            var punto = puntoMaximo * puntoRandom;
+            var newCirculo = new Path.Circle(punto, 200);
+            
+            newCirculo.fillColor = keyData[event.key].color;
+            keyData[event.key].sound.play();
+
+            arreglo.push(newCirculo);}
+        }
+
+
+        function onFrame(event){
+            for(var i = 0; i < arreglo.length; i++){
+            arreglo[i].fillColor.hue +=2;
+            arreglo[i].scale(0.9);
+        }}
+
+</script>
+
+    <title>Circles</title>
+</head>
+<body>
+    <p>Presiona cualquier tecla</p>
+<canvas id="myCanvas" resize></canvas>
+</body>
+</html>
